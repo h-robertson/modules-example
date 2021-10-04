@@ -1,6 +1,7 @@
 import update from "./update";
-import { layout } from "./init";
+import { layout, control } from "./init";
 import { select } from "d3-selection";
+import { state } from "./state";
 function draw() {
 
     // Draw svg

@@ -1,5 +1,5 @@
 // import { layout } from "./draw";
-import { layout, colors, legend_container, control, popup, numberFormatter } from "./init";
+import { layout, colors, legend_container, popup, control, numberFormatter } from "./init";
 import { select, selectAll } from "d3-selection";
 import data from "./data";
 import { updateColors, color_array } from "./colors";
@@ -17,6 +17,12 @@ function update() {
     // Append circles based on data
     svg.selectAll("circle")
        .data(data.data)
+         //  if ("filter" in data.data.column_names) {
+         //     return processed_data;
+         //  } else {
+         //     return data.data;
+         //  }
+         // })
        .enter()
        .append("circle")
 
@@ -35,12 +41,37 @@ function update() {
    selectAll("circle") // datapoints
       .on("mouseover", function(event, data) {
          const el = this;
-         console.log(data);
          popup.mouseover(el, data);
       })
       .on("mouseout", function() {
          popup.mouseout();
       })
+
+   // Filter control
+   const categories = new Set();
+
+   data.data.forEach(function (d) {
+     categories.add(d.filter)
+   });
+
+   let options = Array.from(categories)
+
+   const control_container = select(layout.getSection("controls"))
+      .append("span").attr("id", "filter-control").node();
+   control.appendTo(control_container).on("change", function(){
+      control.options(options)
+      .update()
+   })
+
+   select(".fl-control-dropdown")
+      .select(".list")
+         .selectAll('div')
+         .data(options)
+         .enter()
+         .append("div")
+         .attr("class", "list-item")
+         .text((d) => d)
+
 };
 
 
