@@ -1,6 +1,6 @@
-Name,Value,Popups
-Apple,8,This is an apple
-Orange,10,This is an orange
-Plum,6,This is a plum
-Grape,3,This is a grape
-Apple,7,This is another apple
+Name,Value,Filter,Popups
+Apple,8,Fruit,This is an apple
+Orange,10,Fruit,This is an orange
+Squash,6,Vegetable,This is a squash
+Cucumber,3,Vegetable,This is a cucumber
+Apple,7,Fruit,This is another apple

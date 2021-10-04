@@ -88,4 +88,9 @@ data:
     name: Info for popups
     dataset: data
     type: column
+    column: "Data::D"
+  - key: filter
+    name: Filter
+    dataset: data
+    type: column
     column: "Data::C"
