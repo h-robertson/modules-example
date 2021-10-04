@@ -1,0 +1,91 @@
+id: 'Modules example'
+name: Untitled template
+description: A Flourish template
+author: Unknown author
+
+# This template is compatible with SDK version 3
+sdk_version: 3
+
+build:
+
+  src:
+    script: npm run build
+    directory: src
+    files:
+      - rollup.config.js
+
+  less:
+    script: npm run less
+    directory: less
+
+settings:
+  - Section title 
+  - property: example_state_property
+    name: Example number setting 
+    description: A setting for changing a number
+    type: number
+
+  - Colors
+  - property: colors
+    import: "@flourish/colors"
+
+  - Controls & filters
+  - property: controls
+    import: "@flourish/controls"
+
+  - Legend
+  - property: legend_container
+    import: "@flourish/legend/container"
+
+  - property: legend_categorical
+    import: "@flourish/legend/discrete-color"
+    overrides:
+      - property: text_color       # Not working???
+        new_section: Categorical legend
+
+  - property: legend_continuous
+    import: "@flourish/legend/continuous-color"
+    overrides:
+      - property: text_color       # Not working???
+        new_section: Continuous legend
+  
+  - property: legend_size
+    import: "@flourish/legend/continuous-size"
+    overrides:
+      - property: text_color       # Not working???
+        new_section: Size legend
+
+  - Popups & panels
+  - property: popup
+    import: "@flourish/info-popup"
+
+  - Number formatting
+  - property: number_format
+    import: "@flourish/number-formatter"
+
+  - property: layout
+    import: "@flourish/layout"
+
+# Data bindings
+data:
+  - Data
+  - key: label
+    name: Name
+    dataset: data
+    type: column
+    column: "Data::A"
+  - key: value
+    name: Value
+    dataset: data
+    type: column
+    column: "Data::B"
+  - key: color
+    name: Color
+    dataset: data
+    type: column
+    column: "Data::A"
+  - key: info_popup
+    name: Info for popups
+    dataset: data
+    type: column
+    column: "Data::D"
