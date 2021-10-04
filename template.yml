@@ -88,4 +88,4 @@ data:
     name: Info for popups
     dataset: data
     type: column
-    column: "Data::D"
+    column: "Data::C"
