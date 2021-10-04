@@ -35,7 +35,6 @@ function update() {
    selectAll("circle") // datapoints
       .on("mouseover", function(event, data) {
          const el = this;
-         console.log(data);
          popup.mouseover(el, data);
       })
       .on("mouseout", function() {

@@ -1,6 +1,7 @@
-import { layout, colors, legend_container, control, popup, numberFormatter } from "./init";
+import { layout, colors, legend_container, legend_categorical, control, popup, numberFormatter } from "./init";
 import { hexToColor, hexToRgba } from "@flourish/pocket-knife";
 import data from "./data";
+import { state } from "./state.js"
 
 let color_array;
 
@@ -17,5 +18,19 @@ function updateColors() {
     }
 
     colors.updateColorScale(color_array);
+
+    // Add categorical legend
+    const legend_items = new Set();
+
+    data.data.forEach(function (d) {
+        legend_items.add(d.label)
+    });
+
+   let legend_array = Array.from(legend_items)
+
+    legend_categorical
+        .data(legend_array, colors.getColor)
+        .update()
 }
+
 export { updateColors, color_array};
