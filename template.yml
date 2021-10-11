@@ -42,12 +42,16 @@ settings:
     overrides:
       - property: text_color       # Not working???
         new_section: Categorical legend
+    show_if:
+      colors.scale_type: "categorical"
 
   - property: legend_continuous
     import: "@flourish/legend/continuous-color"
     overrides:
       - property: text_color       # Not working???
         new_section: Continuous legend
+    show_if:
+      colors.scale_type: "numeric"
   
   - property: legend_size
     import: "@flourish/legend/continuous-size"
