@@ -1,3 +1,5 @@
+// draw() runs once when the template is first loaded.
+
 import update from "./update";
 import { layout } from "./init";
 import { select } from "d3-selection";
@@ -10,6 +12,7 @@ function draw() {
                   .attr("width", "100%")
                   .attr("height", "100%");
 
+    // It can be a good idea to run update() at the end of draw
     update();
 };
 

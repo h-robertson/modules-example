@@ -1,3 +1,4 @@
+# The template.yml creates the user-facing settings panel as well as some metadata for the template & our column bindings at the bottom
 id: 'Modules example'
 name: Untitled template
 description: A Flourish template
@@ -18,6 +19,7 @@ build:
     script: npm run less
     directory: less
 
+# The settings section sets our all of the settings panel, splitting it into defined blocks
 settings:
   - Section title 
   - property: example_state_property
@@ -70,7 +72,7 @@ settings:
   - property: layout
     import: "@flourish/layout"
 
-# Data bindings
+# The data section lets us specific our data bindings. There's no Data tab in the SDK, but these will appear in the Data tab when you've published the template.
 data:
   - Data
   - key: label

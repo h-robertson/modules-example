@@ -1,3 +1,4 @@
+// The state object initially sets the default values of everything in the settings panel. Its properties are updated as the user changes settings.
 export var state = {
     layout: {},
 

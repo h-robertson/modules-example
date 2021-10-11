@@ -1,3 +1,4 @@
+// You can include as many JS files as you want to organize your code. Here we have one being used to set up colors & legends.
 import { layout, colors, legend_container, legend_categorical, legend_continuous, control, popup, numberFormatter } from "./init";
 import data from "./data";
 import { state } from "./state.js"

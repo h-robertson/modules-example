@@ -1,12 +1,14 @@
-// import { layout } from "./draw";
+// update() runs every time a setting or data in the datasheet is changed.
 import { layout, colors, legend_container, control, popup, numberFormatter } from "./init";
 import { select, selectAll } from "d3-selection";
 import data from "./data";
 import { updateColors, color_array } from "./colors";
 
 function update() {
+   // Update the layout settings (e.g. headers, footers, etc.)
     layout.update();
 
+   //  Update the colors to reflect the current data
     updateColors();
 
     // Select svg & get width & height
@@ -27,7 +29,7 @@ function update() {
        .attr("cx", (d,i) => i*w/data.data.length+40)
        .attr("cy", 100)
 
-   // Popups
+   // Set popups
    popup
       .setColumnNames(data.data.column_names)
       .update()

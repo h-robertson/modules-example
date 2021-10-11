@@ -1,10 +1,10 @@
+// An init file is often used to intialise Flourish modules (importing & running their initialization functions)
 import initLayout from "@flourish/layout";
 import createColors from "@flourish/colors";
 import initControls from "@flourish/controls";
 import { createLegendContainer, createDiscreteColorLegend, createContinuousColorLegend, createContinuousSizeLegend } from "@flourish/legend";
 import initialisePopup from "@flourish/info-popup";
 import initFormatter from "@flourish/number-formatter";
-
 
 import { state } from "./state";
 
