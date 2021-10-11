@@ -1,5 +1,4 @@
-import { layout, colors, legend_container, legend_categorical, control, popup, numberFormatter } from "./init";
-import { hexToColor, hexToRgba } from "@flourish/pocket-knife";
+import { layout, colors, legend_container, legend_categorical, legend_continuous, control, popup, numberFormatter } from "./init";
 import data from "./data";
 import { state } from "./state.js"
 
@@ -17,20 +16,43 @@ function updateColors() {
         color_array.push(color);
     }
 
-    colors.updateColorScale(color_array);
+    // Apply numeric or categorical coloring & legend depending on data type bound to Color
 
-    // Add categorical legend
-    const legend_items = new Set();
+    // For numeric...
+    if(!isNaN(color_array[0])) {
+        state.colors.scale_type = "numeric";
 
-    data.data.forEach(function (d) {
-        legend_items.add(d.label)
-    });
+        color_array = color_array.map((x) => parseInt(x));
 
-   let legend_array = Array.from(legend_items)
+        let [min, max] = [Math.min(...color_array), Math.max(...color_array)]
+    
+        colors.updateColorScale(color_array);
 
-    legend_categorical
-        .data(legend_array, colors.getColor)
-        .update()
+        legend_continuous
+            .visible(true)
+            .data([min,max], colors.getColor)
+            .update();
+
+    // For categorical...
+    } else {
+        colors.updateColorScale(color_array);
+        addCategoricalLegend();
+    }
+}
+
+function addCategoricalLegend(){
+        // Add categorical legend
+        const legend_items = new Set();
+
+        data.data.forEach(function (d) {
+            legend_items.add(d.label)
+        });
+    
+       let legend_array = Array.from(legend_items)
+    
+        legend_categorical
+            .data(legend_array, colors.getColor)
+            .update()     
 }
 
 export { updateColors, color_array};

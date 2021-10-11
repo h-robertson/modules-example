@@ -40,4 +40,4 @@ const popup = initialisePopup(state.popup);
 const numberFormatter = initFormatter(state.number_format);
 
 
-export { layout, colors, legend_container, legend_categorical, control, popup, numberFormatter };
+export { layout, colors, legend_container, legend_categorical, legend_continuous, control, popup, numberFormatter };
