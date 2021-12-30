@@ -42,7 +42,7 @@ settings:
   - property: legend_categorical
     import: "@flourish/legend/discrete-color"
     overrides:
-      - property: text_color       # Not working???
+      - property: show_legend
         new_section: Categorical legend
     show_if:
       colors.scale_type: "categorical"
@@ -50,7 +50,7 @@ settings:
   - property: legend_continuous
     import: "@flourish/legend/continuous-color"
     overrides:
-      - property: text_color       # Not working???
+      - property: show_legend
         new_section: Continuous legend
     show_if:
       colors.scale_type: "numeric"
@@ -58,7 +58,7 @@ settings:
   - property: legend_size
     import: "@flourish/legend/continuous-size"
     overrides:
-      - property: text_color       # Not working???
+      - property: show_legend
         new_section: Size legend
 
   - Popups & panels

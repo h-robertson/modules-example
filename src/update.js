@@ -11,6 +11,9 @@ function update() {
    //  Update the colors to reflect the current data
     updateColors();
 
+   // Update legends
+   legend_container.update()
+
     // Select svg & get width & height
     const svg = select("#chart-container")
     let w = svg.node().getBoundingClientRect().width;
